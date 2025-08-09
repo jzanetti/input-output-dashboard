@@ -1,0 +1,82 @@
+Code,countries,Latitude,Longitude,color
+ARG,Argentina,-34.61,-58.38,#1f77b4
+AUS,Australia,-35.28,149.13,#ff7f0e
+AUT,Austria,48.21,16.37,#2ca02c
+BEL,Belgium,50.85,4.35,#d62728
+BGD,Bangladesh,23.81,90.41,#9467bd
+BGR,Bulgaria,42.70,23.32,#8c564b
+BLR,Belarus,53.90,27.57,#e377c2
+BRA,Brazil,-15.79,-47.88,#7f7f7f
+BRN,Brunei Darussalam,4.90,114.94,#bcbd22
+CAN,Canada,45.42,-75.70,#17becf
+CHE,Switzerland,46.95,7.45,#1b9e77
+CHL,Chile,-33.45,-70.67,#d95f02
+CHN,China (People's Republic of),39.90,116.40,#7570b3
+CIV,Côte d'Ivoire,5.36,-4.03,#e7298a
+CMR,Cameroon,3.87,11.50,#66a61e
+COL,Colombia,4.71,-74.07,#e6ab02
+CRI,Costa Rica,9.93,-84.08,#a6761d
+CYP,Cyprus (1),35.19,33.38,#377eb8
+CZE,Czechia,50.08,14.44,#4daf4a
+DEU,Germany,52.52,13.41,#ffbb78
+DNK,Denmark,55.68,12.57,#984ea3
+EGY,Egypt,30.04,31.24,#ff9896
+ESP,Spain,40.42,-3.70,#66c2a5
+EST,Estonia,59.44,24.75,#fc8d62
+FIN,Finland,60.17,24.94,#8da0cb
+FRA,France,48.86,2.35,#e78ac3
+GBR,United Kingdom,51.51,-0.13,#a6d854
+GRC,Greece,37.98,23.73,#f4a582
+HKG,"Hong Kong, China",22.32,114.17,#66bd63
+HRV,Croatia,45.81,15.98,#d9f0d3
+HUN,Hungary,47.50,19.04,#8dd3c7
+IDN,Indonesia,-6.18,106.85,#a6cee3
+IND,India,28.61,77.21,#b2df8a
+IRL,Ireland,53.35,-6.26,#fb9a99
+ISL,Iceland,64.15,-21.94,#e31a1c
+ISR,Israel (2),31.78,35.21,#b3e2cd
+ITA,Italy,41.90,12.50,#fdcdac
+JOR,Jordan,31.95,35.93,#cbd5e8
+JPN,Japan,35.68,139.77,#f1b6da
+KAZ,Kazakhstan,51.17,71.45,#f7f7f7
+KHM,Cambodia,11.56,104.92,#c7eae5
+KOR,Korea,37.57,126.98,#d8b365
+LAO,Lao (People's Democratic Republic),17.97,102.63,#f6e8c3
+LTU,Lithuania,54.69,25.28,#c6dbef
+LUX,Luxembourg,49.61,6.13,#dadaeb
+LVA,Latvia,56.95,24.11,#fdd0a2
+MAR,Morocco,34.02,-6.84,#c994c7
+MEX,Mexico,19.43,-99.13,#df65b0
+MLT,Malta,35.90,14.51,#91bfdb
+MMR,Myanmar,16.87,96.20,#fc9272
+MYS,Malaysia,3.14,101.69,#99d8c9
+NGA,Nigeria,9.08,7.40,#66c2a4
+NLD,Netherlands,52.37,4.90,#fcbba1
+NOR,Norway,59.91,10.75,#a1d99b
+NZL,New Zealand,-41.29,174.78,#c7e9c0
+PAK,Pakistan,33.68,73.05,#a6bddb
+PER,Peru,-12.05,-77.03,#d4b9da
+PHL,Philippines,14.60,120.98,#c51b8a
+POL,Poland,52.23,21.01,#9e9ac8
+PRT,Portugal,38.72,-9.14,#bcbddc
+ROU,Romania,44.44,26.10,#756bb1
+RUS,Russian Federation,55.76,37.62,#de2d26
+SAU,Saudi Arabia,24.71,46.68,#fb6a4a
+SEN,Senegal,14.69,-17.45,#fc9272
+SGP,Singapore,1.35,103.82,#fee0d2
+SVK,Slovakia,48.15,17.11,#636363
+SVN,Slovenia,46.06,14.51,#bdbdbd
+SWE,Sweden,59.33,18.07,#969696
+THA,Thailand,13.76,100.50,#737373
+TUN,Tunisia,36.80,10.18,#525252
+TUR,Turkiye,39.93,32.86,#252525
+TWN,Chinese Taipei,25.03,121.57,#8c6bb1
+UKR,Ukraine,50.45,30.52,#9ebcda
+USA,United States,38.90,-77.04,#4d004b
+VNM,Viet Nam,21.03,105.84,#7a0177
+ZAF,South Africa,-25.75,28.19,#ae017e
+ROW,Rest of the World,0,0,#000000
+MX1,Mexico Non-global manufacturing,19.43,-99.13,#4a4a4a
+MX2,Mexico Global manufacturing,19.43,-99.13,#6b6b6b
+CN1,China Non-Processing,39.90,116.40,#8b008b
+CN2,China Processing,39.90,116.40,#8b008b
