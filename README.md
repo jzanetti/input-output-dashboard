@@ -48,6 +48,6 @@ from app import server as application
 
 ## Reload & test
 1. On the PythonAnywhere **Web** tab click **Reload**.
-2. Visit `https://<yourusername>.pythonanywhere.com/`.
+2. Visit `https://jzanetti1985.pythonanywhere.com`.
 3. If it fails, open the **Error log** link on the Web tab — that file contains Python tracebacks which are essential for debugging.
 
