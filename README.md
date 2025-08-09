@@ -51,3 +51,5 @@ from app import server as application
 2. Visit `https://jzanetti1985.pythonanywhere.com`.
 3. If it fails, open the **Error log** link on the Web tab — that file contains Python tracebacks which are essential for debugging.
 
+### Reference:
+- `HHI`: https://pmc.ncbi.nlm.nih.gov/articles/PMC9760014/?utm_source=chatgpt.com
