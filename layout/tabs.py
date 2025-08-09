@@ -85,6 +85,17 @@ def get_tabs_layout(industry_options, CARD_STYLE, LABEL_STYLE):
                         value='tab-3',
                         children=[
                             html.Div([
+                                html.H3(
+                                    "What is Herfindahl-Hirschman Index (HHI)",
+                                    style={"marginBottom": "5px"}
+                                ),
+
+                                html.P(
+                                    "HHI is usually used to capture customer concentration, " + \
+                                    "here it is adpated to measure the diversification of supplier (exporter) and customer (importer). " + \
+                                    "A higher weighted HHI indicates less diversity and potentially higher risk from relying on fewer suppliers.",
+                                    style={"marginBottom": "20px", "color": "#555"}
+                                ),
                                 # Inputs and button aligned horizontally with spacing and consistent styling
                                 html.Div([
                                     html.Div([

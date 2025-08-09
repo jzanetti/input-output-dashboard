@@ -1,6 +1,6 @@
 from dash import html
 
-def get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABOUT_WEIGHTED_HHI, LABEL_STYLE):
+def get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABOUT_WEIGHTED_HHI, ABOUT_AUTHOR, LABEL_STYLE):
     return html.Div([
         # Top bar with About button
         html.Div(
@@ -81,7 +81,8 @@ def get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABO
                         html.H4("How to Use:"),
                         ABOUT_TEXT_BULLETS,
                         ABOUT_TEXT_BOTTOM,
-                        ABOUT_WEIGHTED_HHI
+                        ABOUT_WEIGHTED_HHI,
+                        ABOUT_AUTHOR
                     ]
                 )
             ]

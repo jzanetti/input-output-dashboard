@@ -54,6 +54,10 @@ ABOUT_WEIGHTED_HHI = html.P(
     "A higher weighted HHI indicates less diversity and potentially higher risk from relying on fewer suppliers."
 )
 
+ABOUT_AUTHOR = html.P(
+    "The dashboard is created by Sijin ZHANG, any comments please reach out zsjzyhzp@gmail.com"
+)
+
 # -----------------------
 # Styling
 # -----------------------
@@ -80,7 +84,7 @@ app.title = "Input-Output Flow Map Dashboard"
 app.layout = html.Div(
     style={"backgroundColor": "#f8f9fa", "fontFamily": "Arial, sans-serif"},
     children=[
-        get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABOUT_WEIGHTED_HHI, LABEL_STYLE),
+        get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABOUT_WEIGHTED_HHI, ABOUT_AUTHOR, LABEL_STYLE),
 
         html.Div(
             style={"display": "flex", "padding": "0 20px"},
