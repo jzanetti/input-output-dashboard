@@ -70,7 +70,8 @@ DROPDOWN_STYLE = {"width": "100%", "marginBottom": "10px"}
 # -----------------------
 # App init
 # -----------------------
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
+server = app.server   # <<< important: this is what WSGI will import
 app.title = "Input-Output Flow Map Dashboard"
 
 # -----------------------
