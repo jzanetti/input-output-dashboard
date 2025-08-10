@@ -12,6 +12,7 @@ from process.summary import create_io_summary
 from process.data import load_data
 from process.utils import obtain_inputs
 from process.risk import update_risk_chart
+from process.heatmap import create_heatmap
 
 # -----------------------
 # Load data
@@ -21,6 +22,7 @@ industry_options = [
     {'label': f"{row['Industry']}", 'value': row['Code']}
     for _, row in data["metadata"].iterrows()
 ]
+country_options = list(set(data["all_countries"].Code))
 
 # -----------------------
 # About text
@@ -90,7 +92,7 @@ app.layout = html.Div(
             style={"display": "flex", "padding": "0 20px"},
             children=[
                 get_sidebar_layout(data, industry_options, LABEL_STYLE, DROPDOWN_STYLE, CARD_STYLE),
-                get_tabs_layout(industry_options, CARD_STYLE, LABEL_STYLE)
+                get_tabs_layout(industry_options, country_options, CARD_STYLE, LABEL_STYLE)
             ]
         )
     ]
@@ -157,21 +159,31 @@ def update_dropdown_options(selected_tab, selected_industry, selected_country):
     Input('graph-tabs', 'value')
 )
 def toggle_visibility(selected_tab):
-    return {"display": "none"} if selected_tab in ['tab-2', 'tab-3'] else CARD_STYLE
+    return {"display": "none"} if selected_tab in ['tab-2', 'tab-3', 'tab-4'] else CARD_STYLE
 
 @app.callback(
     Output('thickness-container', 'style'),
     Input('graph-tabs', 'value')
 )
 def toggle_visibility2(selected_tab):
-    return {"display": "none"} if selected_tab in ['tab-2', 'tab-3'] else CARD_STYLE
+    return {"display": "none"} if selected_tab in ['tab-2', 'tab-3', 'tab-4'] else CARD_STYLE
 
 @app.callback(
     Output('top-dependencies-container', 'style'),
     Input('graph-tabs', 'value')
 )
 def toggle_visibility3(selected_tab):
-    if selected_tab in ['tab-2', 'tab-3']:
+    if selected_tab in ['tab-2', 'tab-3', 'tab-4']:
+        return {"display": "none"}
+    else:
+        return CARD_STYLE
+    
+@app.callback(
+    Output('selected-industry-container', 'style'),
+    Input('graph-tabs', 'value')
+)
+def toggle_visibility3(selected_tab):
+    if selected_tab in ['tab-4']:
         return {"display": "none"}
     else:
         return CARD_STYLE
@@ -263,6 +275,20 @@ def update_risk(risk_weights_data, selected_country, selected_industry, selected
         data["metadata"],
         data["all_countries"])
 
+@app.callback(
+    Output('io-heatmap', 'figure'),
+    [Input('country-dropdown', 'value'),
+     Input('tab4-dropdown-selection', 'value'),
+     Input("tab4-radio-log", "value")]
+)
+def update_heatmap(selected_country, reference_country, use_log):
+    return create_heatmap(
+        data["data"],
+        data["metadata"],
+        selected_country,
+        reference_country,
+        use_log
+    )
 
 # -----------------------
 # Run

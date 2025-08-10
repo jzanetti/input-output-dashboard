@@ -14,7 +14,7 @@ def get_sidebar_layout(data, industry_options, LABEL_STYLE, DROPDOWN_STYLE, CARD
                 )
             ], style=CARD_STYLE),
 
-            html.Div([
+            html.Div(id="selected-industry-container", children=[
                 html.Label("Industry:", style=LABEL_STYLE),
                 dcc.Dropdown(
                     id='industry-dropdown',

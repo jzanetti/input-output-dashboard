@@ -1,6 +1,7 @@
 from dash import html, dcc
+from dash import dash_table
 
-def get_tabs_layout(industry_options, CARD_STYLE, LABEL_STYLE):
+def get_tabs_layout(industry_options, country_options, CARD_STYLE, LABEL_STYLE):
     return html.Div(
         style={"flex": "1"},
         children=[
@@ -79,7 +80,6 @@ def get_tabs_layout(industry_options, CARD_STYLE, LABEL_STYLE):
                             ], style=CARD_STYLE)
                         ]
                     ),
-
                     dcc.Tab(
                         label="Risk profile",
                         value='tab-3',
@@ -163,10 +163,10 @@ def get_tabs_layout(industry_options, CARD_STYLE, LABEL_STYLE):
                                     id='io-risk_profile',
                                     style={
                                         "height": "80vh",
-                                        "borderRadius": "12px",
-                                        "boxShadow": "0 8px 20px rgba(0,0,0,0.12)",
-                                        "backgroundColor": "#fff",
-                                        "padding": "15px"
+                                        #"borderRadius": "12px",
+                                        #"boxShadow": "0 8px 20px rgba(0,0,0,0.12)",
+                                        #"backgroundColor": "#fff",
+                                        #"padding": "15px"
                                     }
                                 ),
 
@@ -174,7 +174,92 @@ def get_tabs_layout(industry_options, CARD_STYLE, LABEL_STYLE):
                                 dcc.Store(id="risk-weights-store"),
                             ], style=CARD_STYLE)
                         ]
+                    ),
+                    dcc.Tab(
+                        label="Heatmap",
+                        value='tab-4',
+                        children=[
+                            html.Div([
+                                # Optional heading and description for context
+                                html.H3(
+                                    "Heatmap of Input-Output Data",
+                                    style={"marginBottom": "8px"}
+                                ),
+                                html.P(
+                                    "Use the controls below to select a reference country and optionally apply logarithmic scaling "
+                                    "for improved visibility of variations in the data. "
+                                    "In the heatmap, the X-axis represents industries in the selected country, "
+                                    "and the Y-axis represents industries in the reference country. "
+                                    "Each cell at position (x, y) indicates the input flow from the industry in the selected country (Y-axis) "
+                                    "to the corresponding industry in the reference country (X-axis).",
+                                    style={"marginBottom": "25px", "color": "#555"}
+                                ),
+                                # Filters aligned horizontally with consistent styling
+                                html.Div([
+                                    html.Div([
+                                        html.Label("Select reference country:", style=LABEL_STYLE),
+                                        dcc.Dropdown(
+                                            id='tab4-dropdown-selection',
+                                            options=country_options,
+                                            value="CN1",
+                                            clearable=False,
+                                            style={
+                                                "width": "250px",
+                                                "border": "1px solid #ccc",
+                                                "borderRadius": "6px",
+                                                "fontSize": "14px"
+                                            }
+                                        ),
+                                    ], style={"marginRight": "30px", "minWidth": "280px"}),
+
+                                    html.Div([
+                                        html.Label("Scale mode:", style=LABEL_STYLE),
+                                        dcc.RadioItems(
+                                            id='tab4-radio-log',
+                                            options=[
+                                                {'label': 'Original values', 'value': 'linear'},
+                                                {'label': 'Using log', 'value': 'log'}
+                                            ],
+                                            value='log',
+                                            inline=True,
+                                            inputStyle={"marginRight": "8px", "marginLeft": "12px"},
+                                            labelStyle={"marginRight": "25px"},
+                                            style={
+                                                "fontSize": "14px",
+                                                "padding": "8px 12px",
+                                                "border": "1px solid #ccc",
+                                                "borderRadius": "6px",
+                                            }
+                                        )
+                                    ], 
+                                    # style={"minWidth": "220px", "display": "flex", "alignItems": "center"}
+                                    ),
+                                ], style={
+                                    "display": "flex",
+                                    "alignItems": "flex-end",
+                                    "flexWrap": "wrap",
+                                    "gap": "20px",
+                                    "marginBottom": "25px"
+                                }),
+
+                                # Graph container with modern card style
+                                dcc.Graph(
+                                    id='io-heatmap',
+                                    style={
+                                        "height": "80vh",
+                                        "width": "80vh",
+                                        # "borderRadius": "12px",
+                                        # "boxShadow": "0 8px 20px rgba(0,0,0,0.12)",
+                                        # "backgroundColor": "#fff",
+                                        # "padding": "15px"
+                                    }
+                                )
+
+                            ], style=CARD_STYLE)
+                        ]
                     )
+
+
                 ]
             )
         ]
