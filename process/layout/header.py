@@ -1,6 +1,8 @@
 from dash import html
+from process.about import ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABOUT_WEIGHTED_HHI, ABOUT_AUTHOR
+from process.layout.styles import LABEL_STYLE
 
-def get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABOUT_WEIGHTED_HHI, ABOUT_AUTHOR, LABEL_STYLE):
+def get_header_layout():
     return html.Div([
         # Top bar with About button
         html.Div(
@@ -78,10 +80,10 @@ def get_header_layout(ABOUT_TEXT_TOP, ABOUT_TEXT_BULLETS, ABOUT_TEXT_BOTTOM, ABO
                         ),
                         html.H3("About This Dashboard"),
                         ABOUT_TEXT_TOP,
-                        html.H4("How to Use:"),
-                        ABOUT_TEXT_BULLETS,
-                        ABOUT_TEXT_BOTTOM,
-                        ABOUT_WEIGHTED_HHI,
+                        #html.H4("How to Use:"),
+                        #ABOUT_TEXT_BULLETS,
+                        #ABOUT_TEXT_BOTTOM,
+                        #ABOUT_WEIGHTED_HHI,
                         ABOUT_AUTHOR
                     ]
                 )

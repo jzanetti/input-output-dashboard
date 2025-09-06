@@ -4,6 +4,38 @@ import plotly.graph_objects as go
 
 from process import COUNTRY_COORDS
 from process.utils import calculate_risk_index, quadratic_bezier, obtain_inputs
+from dash.dependencies import Input, Output
+
+def create_map_wrapper(app, data):
+
+    @app.callback(
+        Output('io-map', 'figure'),
+        [Input('country-dropdown', 'value'),
+        Input('industry-dropdown', 'value'),
+        Input("top-dependencies", "value"),
+        Input("secondary-dependencies", "value")]
+    )
+    def update(selected_country, selected_industry, selected_deps, selected_sec_deps):
+        print(" - " + selected_country)
+        try:
+            return create_io_map(
+                data["data"],
+                selected_country,
+                selected_industry,
+                selected_deps,
+                data["metadata"],
+                data["all_countries"],
+                selected_sec_deps=selected_sec_deps
+            )
+        except Exception:
+            fig = go.Figure()
+            fig.add_annotation(
+                text=f"Error: Not able to find {selected_industry} for {selected_country}",
+                xref="paper", yref="paper", x=0.5, y=0.5,
+                showarrow=False, font=dict(size=20, color="red")
+            )
+            return fig
+
 
 
 def add_links(line_index, total_lines, start_lon, end_lon, start_lat, end_lat, num_points=50):
@@ -45,7 +77,7 @@ def add_links(line_index, total_lines, start_lon, end_lon, start_lat, end_lat, n
 
 
 def create_io_map(df, selected_country, selected_industry, selected_deps,
-                  metadata, country_info, selected_sec_deps=False, use_thickness=False):
+                  metadata, country_info, selected_sec_deps=False):
     """
     Create a world map showing input flows to a specific country-industry pair.
 
@@ -57,7 +89,6 @@ def create_io_map(df, selected_country, selected_industry, selected_deps,
     - metadata: DataFrame mapping industry codes to names
     - country_info: DataFrame mapping country codes to names/colors
     - selected_sec_deps: bool, include secondary dependencies
-    - use_thickness: bool, scale line thickness by value
 
     Returns:
     - Plotly Figure object, or None if no inputs found
@@ -100,8 +131,7 @@ def create_io_map(df, selected_country, selected_industry, selected_deps,
             start_lat, start_lon = COUNTRY_COORDS[input_country]
             end_lat, end_lon = COUNTRY_COORDS[proc_country]
 
-            thickness = max((value / max_input) * 10, 1.0) if use_thickness else 1.0
-
+            thickness = 1.0
             plot_data.append({
                 'input_country': input_country,
                 'input_industry': input_industry,

@@ -71,7 +71,6 @@ def create_cluster_wrapper(app, data):
         selected_cluster = 0
         table_data = [cluster_map[f"Cluster {selected_cluster}"]]
 
-        print(table_data)
         fig = make_subplots(
             rows=1, cols=3,
             column_widths=[0.7, 0.15, 0.15],
